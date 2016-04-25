@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Restaurants</title>
-    <link type="text/css" rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
-    <script data-main="/js/restaurant/main" src="/lib/requirejs/require.js" type="application/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static_files', path = '/lib/bootstrap/css/bootstrap.min.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static_files', path = '/css/style.css') }}"/>
+    <script data-main="{{ url_for('static_files', path = '/js/restaurant/main') }}" src="{{ url_for('static_files', path = '/lib/requirejs/require.js') }}" type="application/javascript"></script>
 </head>
 <body>
 
