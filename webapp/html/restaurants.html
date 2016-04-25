@@ -19,7 +19,7 @@
 
                 <a href="#" data-bind="text: $data.store().name, visible: !isEditable()"></a>
                 <input class="restaurant-input" type="text"
-                       data-bind="visible: isEditable(), textInput: $data.tempName"/>
+                       data-bind="visible: isEditable(), textInput: $data.tempName, attr: {placeholder: $data.store().name}" />
             </div>
 
             <div class="restaurant-action-bar">

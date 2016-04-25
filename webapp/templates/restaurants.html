@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+    <link type="text/css" rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+    <script data-main="/js/restaurant/main" src="/lib/requirejs/require.js" type="application/javascript"></script>
+</head>
+<body>
+
+<h1>Restaurants You Might Like {% if city or country %} in {% endif %}{% if city %} {{city}}, {% endif %}{% if country %} {{country}} {% endif %}</h1>
+
+<div id="restaurant-list-wrapper">
+    <ul id="restaurant-list" data-bind="foreach: restaurantList">
+        {% for restaurant in restaurants %}
+            {% include 'resources/restaurant_single.html' %}
+        {% endfor %}
+    </ul>
+    {% include 'vertical_toolbar.html' %}
+
+</div>
+
+<div id="restaurant-new-modal" class="modal fade" role="dialog" data-bind="modal: showModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+            <h3 class="modal-title">Create New Restaurant</h3>
+        </div>
+        <div class="modal-content">
+            <ul>
+                <li>
+                    <label for="restaurant-new-name">Enter new restaurant name</label><input id="restaurant-new-name"
+                                                                                             type="text"
+                                                                                             data-bind="textInput: newRestaurantNameInput"/>
+                    <a href="#" class="btn btn-success btn-lg" data-bind="click: newHandler">Create</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
