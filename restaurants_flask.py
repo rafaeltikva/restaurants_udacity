@@ -1,6 +1,6 @@
 __author__ = 'rafaeltikva'
 
-from flask import Flask, request, jsonify, url_for, render_template
+from flask import Flask, request, jsonify, url_for, render_template, flash
 from database_setup import Restaurant, MenuItem
 import database
 import api_db_mapping
@@ -55,6 +55,8 @@ def static_files(path):
 
 @app.route('/<string:object_kind>/<int:object_id>', methods=['GET'])
 def render_resource(object_kind, object_id):
+    flash('This is an amazing %s' % object_kind)
+    flash('You will like it there')
     if object_kind == 'restaurant':
         return render_template('resources/restaurant_single.html', restaurant = database.query(api_db_mapping.mapping[object_kind]['object_type'], object_id))
     elif object_kind =='menu_item':
@@ -120,4 +122,5 @@ def delete_menu_item(object_kind, menu_item_id):
 
 
 if __name__ == '__main__':
+    app.secret_key = 'mysecretkey'
     app.run(host='0.0.0.0', port=5000, debug=True)
