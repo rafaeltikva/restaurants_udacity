@@ -22,7 +22,7 @@ define(['jquery', 'knockout', 'restaurant/Restaurant'], function ($, ko, Restaur
                 var restaurant = new Restaurant({name: self.newRestaurantNameInput});
                 // Update the server
                 $.ajax({
-                    url: 'http://localhost:5000/api/restaurant',
+                    url: 'http://localhost:8000/api/restaurant',
                     method: 'PUT',
                     contentType: 'application/json',
                     dataType: 'json',
@@ -62,7 +62,7 @@ define(['jquery', 'knockout', 'restaurant/Restaurant'], function ($, ko, Restaur
 
                     // Update the model
                     $.ajax({
-                        url: 'http://localhost:5000/api/restaurant',
+                        url: 'http://localhost:8000/api/restaurant',
                         method: 'POST',
                         contentType: 'application/json',
                         dataType: 'json',
@@ -86,7 +86,7 @@ define(['jquery', 'knockout', 'restaurant/Restaurant'], function ($, ko, Restaur
             self.deleteHandler = function (restaurant) {
                 if (confirm('Are you sure you want to delete ' + restaurant.store().name() + '?')) {
                     $.ajax({
-                        url: 'http://localhost:5000/api/restaurant',
+                        url: 'http://localhost:8000/api/restaurant',
                         method: 'POST',
                         contentType: 'application/json',
                         dataType: 'json',

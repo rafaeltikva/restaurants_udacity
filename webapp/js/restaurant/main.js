@@ -47,14 +47,9 @@ require(['jquery', 'knockout', 'restaurant/ViewModel', 'bootstrap'], function ($
     var viewModel = new ViewModel();
 
     $.ajax({
-        url: 'http://localhost:5000/api/restaurants'
+        url: 'http://localhost:8000/api/restaurants'
     }).done(function (data) {
         console.log('ajax query done');
-        console.log(data);
-        data = typeof(data) === 'string' ? JSON.parse(data) : data;
-        console.log(typeof (data));
-        console.log(data.length);
-
         for (var i = 0; i < data.length; i++) {
             viewModel.addRestaurantToList(data[i]);
         }
