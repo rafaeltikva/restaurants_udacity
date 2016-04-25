@@ -1,8 +1,18 @@
 <li class="restaurant">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li><strong>{{ message }}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <div class="restaurant-info">
         <span>Restaurant #{{ restaurant.id }}</span>
 
-        <a href="{{ url_for('render_resource', object_kind = 'restaurant', object_id = restaurant.id) }}" data-bind="visible: !isEditable()">{{ restaurant.name }}</a>
+        <a href="{{ url_for('render_resource', object_kind = 'restaurant', object_id = restaurant.id) }}"
+           data-bind="visible: !isEditable()">{{ restaurant.name }}</a>
         <input class="restaurant-input" type="text"
                data-bind="visible: isEditable(), textInput: $data.tempName, attr: {placeholder: $data.store().name}"/>
     </div>
@@ -10,8 +20,8 @@
     <div class="restaurant-action-bar">
         <a href="#" class="restaurant-update-button btn btn-success btn-sm"
            data-bind="visible: isEditable(), click: $root.updateHandler">Update</a>
-        <a href="#" class="restaurant-edit-button btn btn-primary btn-sm"
-           data-bind="text: isEditable() ? 'Cancel' : 'Edit', click: $root.editHandler">Edit</a>
+        <a href={{ url_for('index') }} class="restaurant-edit-button btn btn-primary btn-sm"
+        data-bind="text: isEditable() ? 'Cancel' : 'Edit', click: $root.editHandler">Cancel</a>
         <a href="#" class="restaurant-delete-button btn btn-danger btn-sm"
            data-bind="click: $root.deleteHandler">Delete</a>
     </div>
