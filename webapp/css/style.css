@@ -1,0 +1,41 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#restaurant-list {
+    width: 25%;
+    display: inline-block;
+}
+
+.restaurant {
+    border: 1px solid #ccc;
+    padding: 3em 1em;
+    list-style: none;
+}
+
+.restaurant-info {
+    text-align: center;
+}
+
+.restaurant-action-bar {
+    float: right;
+    margin-top: 0.75em;
+}
+
+#vertical-toolbar {
+    width: 5%;
+    text-align: center;
+    display: inline-block;
+}
+
+.green {
+    background: #66BB6A;
+    color: #fff;
+}
+
+.round {
+    border-radius: 50%;
+    padding: 1em;
+}

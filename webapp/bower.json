@@ -1,0 +1,20 @@
+{
+  "name": "restaurant",
+  "homepage": "https://github.com/rafaeltikva/fullstack-nanodegree-vm",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "knockoutjs#^3.4.0",
+    "requirejs": "^2.2.0",
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}

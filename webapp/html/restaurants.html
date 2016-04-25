@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+    <link type="text/css" rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+    <script data-main="/js/restaurant/main" src="/lib/requirejs/require.js" type="application/javascript"></script>
+</head>
+<body>
+
+<h1>Restaurants You Might Like</h1>
+
+<div id="restaurant-list-wrapper" style="display: none;" data-bind="visible: restaurantList().length > 0">
+    <ul id="restaurant-list" data-bind="foreach: restaurantList">
+        <li class="restaurant">
+            <div class="restaurant-info">
+                <span data-bind="text: 'Restaurant #' + $data.store().id() + ': '"></span>
+
+                <a href="#" data-bind="text: $data.store().name, visible: !isEditable()"></a>
+                <input class="restaurant-input" type="text"
+                       data-bind="visible: isEditable(), textInput: $data.tempName"/>
+            </div>
+
+            <div class="restaurant-action-bar">
+                <a href="#" class="restaurant-update-button btn btn-success btn-sm"
+                   data-bind="text: 'Update', visible: isEditable(), click: $root.updateHandler"></a>
+                <a href="#" class="restaurant-edit-button btn btn-primary btn-sm"
+                   data-bind="text: isEditable() ? 'Cancel' : 'Edit', click: $root.editHandler"></a>
+                <a href="#" class="restaurant-delete-button btn btn-danger btn-sm"
+                   data-bind="text: 'Delete', click: $root.deleteHandler"></a>
+            </div>
+        </li>
+    </ul>
+    <div id="vertical-toolbar">
+        <a href="#" id="restaurant-new-button" class="glyphicon glyphicon-plus round green"
+           data-bind="click: showModal.bind(showModal, true) "></a>
+    </div>
+
+</div>
+
+<div id="restaurant-new-modal" class="modal fade" role="dialog" data-bind="modal: showModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+            <h3 class="modal-title">Create New Restaurant</h3>
+        </div>
+        <div class="modal-content">
+            <ul>
+                <li>
+                    <label for="restaurant-new-name">Enter new restaurant name</label><input id="restaurant-new-name"
+                                                                                             type="text" data-bind="textInput: newRestaurantNameInput"/>
+                    <a href="#" class="btn btn-success btn-lg" data-bind="click: newHandler">Create</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
